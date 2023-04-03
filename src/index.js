@@ -1,17 +1,48 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { Provider } from "react-redux";
+import { createStore } from 'redux';
+import { BrowserRouter } from 'react-router-dom';
 
+const initial = {
+  goalcount: 10000,
+  donecount: 0,
+  recordcount: 0,
+  history: [],
+}
+
+
+function reducer(state = initial, action) {
+  switch (action.type) {
+    case 'save':
+      return state = {
+        ...state,
+        goalcount: state.goalcount - action.payload.recordcount,
+        history: [...state.history, action.payload.recordcount]
+      }
+    case 'add':
+      return {
+        ...state,
+        history: [...state.history, action.payload]
+      }
+    case 'remove':
+      return {
+        ...state,
+        goalcount: state.goalcount + state.history.find((data, index) => index == action.payload.index),
+        history: state.history.filter((data, index) => index !== action.payload.index)
+      }
+    default:
+      return state;
+  }
+}
+
+let store = createStore(reducer);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
