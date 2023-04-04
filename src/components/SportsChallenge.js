@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { React, useState } from 'react'
-import {  useDispatch,useSelector } from 'react-redux'
+import {  useDispatch } from 'react-redux'
 import confetti from 'canvas-confetti'
 import Button from 'react-bootstrap/Button';
 import './SportsChallenge.css'
@@ -29,7 +29,7 @@ export default function SportsChallenge(){
     };
 
     const saveRecord = () => {
-        if (recordCount == 0) return;
+        if (recordCount === 0) return;
         dispatch({ type: 'save', payload: { recordcount: recordCount } })
         setRecordCount(0);
         navigate('/');
