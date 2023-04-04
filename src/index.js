@@ -4,6 +4,7 @@ import App from './App';
 import { Provider } from "react-redux";
 import { createStore } from 'redux';
 import { BrowserRouter } from 'react-router-dom';
+import "bootswatch/dist/minty/bootstrap.min.css";
 
 const initial = {
   goalcount: 10000,
@@ -14,6 +15,7 @@ const initial = {
 
 
 function reducer(state = initial, action) {
+  console.log(action.type, action.payload)
   switch (action.type) {
     case 'save':
       return state = {
@@ -35,6 +37,7 @@ function reducer(state = initial, action) {
     default:
       return state;
   }
+  console.log(state)
 }
 
 let store = createStore(reducer);

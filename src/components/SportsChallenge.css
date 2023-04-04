@@ -8,3 +8,19 @@
     pointer-events: none;
     z-index: 2000;
 }
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
+}
+
+.record{
+    font-weight: 600;
+    font-size: 50px;
+}
+
+.btn-primary{
+    padding: 10px;
+}

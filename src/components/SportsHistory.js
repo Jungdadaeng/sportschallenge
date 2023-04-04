@@ -1,15 +1,15 @@
-import { useSelector, useDispatch } from 'react-redux'
 import './SportsHistory.css'
+import { useSelector, useDispatch } from 'react-redux'
 
-export default function SportsHistory(){
+const SportsHistory = () => {
     const history = useSelector((state) => state.history);
+    console.log(history)
     const dispatch = useDispatch();
     const removeHistory = (index) => {
         dispatch({ type: 'remove', payload: { index: index } })
     }
     return (
         <div>
-            <h2 className="title">Sports Challenge</h2>
             <h1 className="title">Challenge History</h1>
             {history.map((count, index) => {
                 return (
@@ -21,3 +21,5 @@ export default function SportsHistory(){
         </div>
     )
 }
+
+export default SportsHistory;

@@ -1,4 +1,5 @@
-import Link from 'next/link';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import { useSelector } from 'react-redux'
 import './SportsMain.css'
 export default function SportsMain(){
@@ -7,16 +8,17 @@ export default function SportsMain(){
     const restCount = goalCount - doneCount;
 
     return(
-        <div>
-            <h2 className="title">Sports Challenge</h2>
-            <div>
-                <span> 스쿼트 누적 개수</span>
-                <br />
-                <div>남은횟수 : {restCount}회</div>
-                <div>수행횟수 : {doneCount}회</div>
-                <br />
-                <Link href="/challenge">스쿼트 실행</Link>
-            </div>
-        </div>
+        <Card className="text-center">
+            <Card.Header>Sports Challenge</Card.Header>
+            <Card.Body>
+                <Card.Title>스쿼트 누적 개수</Card.Title>
+                <Card.Title>
+                    <div>남은횟수 : {restCount}회</div>
+                    <div>수행횟수 : {doneCount}회</div>
+                </Card.Title>
+                <Button variant="primary" href="/challenge">스쿼트 실행</Button>
+            </Card.Body>
+            <Card.Footer className="text-muted">오늘도 화이팅!</Card.Footer>
+        </Card>
     )
 }
