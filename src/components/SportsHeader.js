@@ -7,10 +7,10 @@ export default function SportsHeader(){
         <>
         <Nav className="justify-content-end" activeKey="/home">
             <Nav.Item>
-            <Nav.Link><Link className='link' to="/">HOME</Link></Nav.Link>
+           <Link className='link' to="/">HOME</Link>
             </Nav.Item>
             <Nav.Item>
-            <Nav.Link><Link className='link' to="/history">HISTORY</Link></Nav.Link>
+           <Link className='link' to="/history">HISTORY</Link>
             </Nav.Item>
         </Nav>
         <Outlet />
