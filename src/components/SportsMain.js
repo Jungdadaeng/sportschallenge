@@ -2,6 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useSelector } from 'react-redux'
 import './SportsMain.css'
+import { Link } from 'react-router-dom';
 export default function SportsMain(){
     const goalCount = useSelector((state) => state.goalcount);
     const doneCount = useSelector((state) => state.donecount);
@@ -16,7 +17,7 @@ export default function SportsMain(){
                     <div>남은횟수 : {restCount}회</div>
                     <div>수행횟수 : {doneCount}회</div>
                 </Card.Title>
-                <Button variant="primary" href="/challenge">스쿼트 실행</Button>
+                <Button variant="primary"><Link className="btn" to="/challenge">스쿼트 실행</Link></Button>
             </Card.Body>
             <Card.Footer className="text-muted">오늘도 화이팅!</Card.Footer>
         </Card>

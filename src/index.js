@@ -15,7 +15,6 @@ const initial = {
 
 
 function reducer(state = initial, action) {
-  console.log(action.type, action.payload)
   switch (action.type) {
     case 'save':
       return state = {

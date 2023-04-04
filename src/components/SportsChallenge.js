@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { React, useState } from 'react'
 import {  useDispatch,useSelector } from 'react-redux'
 import confetti from 'canvas-confetti'
+import Button from 'react-bootstrap/Button';
 import './SportsChallenge.css'
 
 export default function SportsChallenge(){
@@ -28,7 +29,6 @@ export default function SportsChallenge(){
     };
 
     const saveRecord = () => {
-        console.log('????',recordCount)
         if (recordCount == 0) return;
         dispatch({ type: 'save', payload: { recordcount: recordCount } })
         setRecordCount(0);
@@ -49,14 +49,14 @@ export default function SportsChallenge(){
                
             </div>
             <div className="flex gap-2 mt-3">
-                <button className="btn btn-primary" onClick={() => changeRecordCount(10)}>+ 10</button>
-                <button className="btn btn-primary" onClick={() => changeRecordCount(5)}>+ 5</button>
-                <button className="btn btn-primary" onClick={() => changeRecordCount(-10)}>- 10</button>
-                <button className="btn btn-primary" onClick={() => changeRecordCount(-5)}>- 5</button>
+                <Button className="btn btn-primary" onClick={() => changeRecordCount(10)}>+ 10</Button>
+                <Button className="btn btn-primary" onClick={() => changeRecordCount(5)}>+ 5</Button>
+                <Button className="btn btn-primary" onClick={() => changeRecordCount(-10)}>- 10</Button>
+                <Button className="btn btn-primary" onClick={() => changeRecordCount(-5)}>- 5</Button>
             </div>
             <div className="flex gap-2 items-center">
-                <button className="btn btn-primary" onClick={saveRecord}>적용</button>
-                <button className="btn btn-primary" onClick={cancelRecord}>취소</button>
+                <Button className="btn btn-primary" onClick={saveRecord}>적용</Button>
+                <Button className="btn btn-primary" onClick={cancelRecord}>취소</Button>
             </div>
         </div>
     )
