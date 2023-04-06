@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import './SportsChallenge.css'
 
 export default function SportsChallenge(){
-    const [recordCount, setRecordCount] = useState(0);
+    const [recordCount, setRecordCount] = useState(0) ;
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
