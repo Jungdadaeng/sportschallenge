@@ -25,7 +25,7 @@ export default function SportsChallenge(){
         }
 
         const newRecordCount = recordCount + addiCount < 0 ? 0 : recordCount + addiCount;
-        setRecordCount(newRecordCount);
+        setRecordCount(newRecordCount); 
     };
 
     const saveRecord = () => {
